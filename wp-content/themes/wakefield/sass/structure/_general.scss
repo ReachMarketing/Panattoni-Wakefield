@@ -1,0 +1,7 @@
+html, body {
+    @apply overflow-x-clip;
+}
+
+.screen-reader-text {
+    @apply hidden;
+}
