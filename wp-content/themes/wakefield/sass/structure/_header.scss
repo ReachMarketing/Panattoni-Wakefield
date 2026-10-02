@@ -1,0 +1,7 @@
+.site-branding {
+    @apply flex items-center justify-center py-[30px];
+
+    img {
+        @apply md:w-[250px] w-[200px];
+    }
+}

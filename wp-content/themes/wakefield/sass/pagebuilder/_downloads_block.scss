@@ -1,0 +1,29 @@
+section.downloads-block {
+    .inner-wrapper {
+        .downloads-wrapper {
+            @apply col-span-12 flex flex-wrap gap-[25px];
+
+            a.download {
+                @apply lg:w-[calc(33.3333%-17px)] md:w-[calc(50%-12.5px)] w-full block border-[1px] border-pan-light-blue relative;
+
+                .image-caption {
+                    @apply flex justify-between bg-pan-blue/90 duration-300 ease-out transition-colors;
+
+                    span.icon {
+                        @apply flex justify-between items-center;
+
+                        svg {
+                            @apply h-[1.25em] fill-white ml-[15px];
+                        }
+                    }
+                }
+
+                &:hover {
+                    .image-caption {
+                        @apply bg-pan-light-blue/90;
+                    }
+                }
+            }
+        } 
+    }
+}

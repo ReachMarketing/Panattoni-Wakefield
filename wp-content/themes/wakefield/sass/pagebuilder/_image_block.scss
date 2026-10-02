@@ -1,0 +1,21 @@
+section.image-block {
+    .inner-wrapper {
+        .images-wrapper {
+            @apply col-span-12 md:flex gap-[25px] md:mb-[25px] md:last:mb-0;
+
+            a {
+                @apply md:aspect-[5/3] overflow-clip grow relative md:mb-0 mb-[25px] inline-block;
+
+                img {
+                    @apply w-full h-full object-cover duration-500 transition-all ease-out;
+                }
+
+                &:hover img {
+                    @apply opacity-80 scale-[1.025];
+                }
+            }
+
+            
+        }
+    }
+}

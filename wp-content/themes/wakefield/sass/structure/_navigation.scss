@@ -1,1 +1,71 @@
+header {
+    @apply bg-pan-blue sticky top-0 left-0 w-full self-start z-50 md:min-h-0 min-h-[50px] ;
 
+    .main-navigation {
+        @apply hidden md:block max-w-[1440px] w-full md:px-[50px] px-[25px] mx-auto ;
+
+        .menu-main-menu-container ul {
+            @apply md:flex justify-between md:pt-0 pt-[50px] md:pb-0 pb-[50px]; 
+
+            li {
+                @apply grow;
+
+                a {
+                    @apply lg:text-[16px] md:text-[14px] text-[16px] text-white font-semibold text-center block md:border-r-[1px] md:border-r-white duration-300 ease-out transition-colors hover:text-pan-light-blue py-[10px];
+                }
+
+                &:first-child a {
+                    @apply md:border-l-[1px] md:border-l-white;
+                }
+            }
+        }
+    }
+}
+
+
+.menu-toggle {
+    @apply md:hidden block absolute left-[25px] top-[16px];
+}
+
+#nav-icon {
+    @apply m-0 w-[30px] h-[16px] transition-all rotate-0 duration-500 cursor-pointer z-50 ease-linear;
+
+    span { 
+        @apply block absolute h-[2px] w-full rounded-[2px] opacity-100 left-0 ease-linear transition-all rotate-0 duration-200 bg-white;
+        
+        &:nth-child(1) {
+            top: 0px;
+        }
+
+        &:nth-child(2), &:nth-child(3) {
+            top: 8px;
+        }
+
+        &:nth-child(4) {
+            top: 16px;   
+        }
+    }
+
+    &.open span {
+
+        &:nth-child(1) {
+            top: 8px;
+            width: 0%;
+            left: 50%;
+        }
+
+        &:nth-child(2) {
+            @apply rotate-45;
+        }
+
+        &:nth-child(3) {
+            @apply -rotate-45;
+        }
+
+        &:nth-child(4) {
+            top: 8px;
+            width: 0%;
+            left: 50%;
+        }
+    }
+}

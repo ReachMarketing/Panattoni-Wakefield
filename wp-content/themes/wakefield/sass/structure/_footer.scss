@@ -1,0 +1,8 @@
+.bottom-footer {
+    @apply bg-pan-blue py-[30px] border-t-[1px] border-t-white;
+    .inner-wrapper {
+        p {
+            @apply col-span-12 text-white;
+        }
+    }
+}

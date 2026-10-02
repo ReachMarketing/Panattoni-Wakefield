@@ -5,7 +5,7 @@ if (! defined('_S_VERSION')) {
     define('_S_VERSION', '1.0.0');
 }
 
-function peritus_setup()
+function wakefield_setup()
 {
     add_theme_support('post-thumbnails');
 
@@ -26,15 +26,15 @@ function peritus_setup()
         ]
     );
 }
-add_action('after_setup_theme', 'peritus_setup');
+add_action('after_setup_theme', 'wakefield_setup');
 
-function peritus_scripts()
+function wakefield_scripts()
 {
     if (is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
     }
 }
-add_action('wp_enqueue_scripts', 'peritus_scripts');
+add_action('wp_enqueue_scripts', 'wakefield_scripts');
 
 function vc_remove_wp_ver_css_js($src)
 {
@@ -46,15 +46,21 @@ function vc_remove_wp_ver_css_js($src)
 add_filter('style_loader_src', 'vc_remove_wp_ver_css_js', 9999);
 add_filter('script_loader_src', 'vc_remove_wp_ver_css_js', 9999);
 
-function peritus_assets()
+function wakefield_assets()
 {
     //$version = filemtime(get_template_directory_uri() . '/style.css');
     $version = time();
+    wp_enqueue_style("fancybox-style", get_template_directory_uri() . '/dist/fancybox/fancybox.css');
     wp_enqueue_style("wakefield-style", get_template_directory_uri() . '/style.css?v=' . $version);
     wp_enqueue_script('jquery');
+    wp_enqueue_script('fancybox', get_template_directory_uri() . '/dist/fancybox/fancybox.umd.js', array('gsap-js'), false, true);
     wp_enqueue_script('wakefield-scripts', get_template_directory_uri() . '/js/scripts.js?v=' . $version);
+    wp_enqueue_script('gsap-js', 'https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js?v=' . $version, array(), false, true);
+    wp_enqueue_script('gsap-js2', 'https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js?v=' . $version, array('gsap-js'), false, true);
+    wp_enqueue_script('gsap-js3', 'https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollToPlugin.min.js?v=' . $version, array('gsap-js'), false, true);
+    wp_enqueue_script('gsap-js4', get_template_directory_uri() . '/js/gsap.js?v=' . $version, array('gsap-js'), false, true);
 }
-add_action("wp_enqueue_scripts", "peritus_assets");
+add_action("wp_enqueue_scripts", "wakefield_assets");
 
 // remove internal emojis from WP
 remove_action('wp_head', 'print_emoji_detection_script', 7);
@@ -91,7 +97,19 @@ function register_custom_image_sizes()
         add_theme_support('post-thumbnails');
     }
 
-    // Hero image sizes
-    add_image_size('hero', 1440, 0, true);
+    add_image_size('hero-full', 2000, 800, true);
+    add_image_size('hero-xl', 1440, 800, true);
+    add_image_size('hero-lg', 1280, 800, true);
+    add_image_size('hero-md', 1024, 650, true);
+    add_image_size('hero-sm', 768, 500, true);
+    add_image_size('hero-xs', 500, 400, true);
+
+    // Full image sizes
+    add_image_size('full', 2000, 0, true);
+    add_image_size('xl', 1440, 0, true);
+    add_image_size('lg', 1280, 0, true);
+    add_image_size('md', 1024, 0, true);
+    add_image_size('sm', 768, 0, true);
+    add_image_size('xs', 500, 0, true);
 }
 add_action('after_setup_theme', 'register_custom_image_sizes');

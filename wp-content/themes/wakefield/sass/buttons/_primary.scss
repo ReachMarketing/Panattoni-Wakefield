@@ -1,0 +1,10 @@
+.primary {
+    @apply inline-block;
+    a {
+        @apply flex items-center justify-between bg-pan-blue text-white font-semibold px-[10px] py-[5px] duration-200 ease-out transition-colors hover:bg-pan-light-blue;
+    
+        svg {
+            @apply h-[1em] fill-white ml-[1em];
+        }
+    }
+}

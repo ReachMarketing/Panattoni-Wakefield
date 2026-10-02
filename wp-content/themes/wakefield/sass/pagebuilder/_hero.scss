@@ -1,0 +1,24 @@
+section.hero {
+
+    @apply relative py-0;
+
+    picture {
+        @apply w-full relative;
+
+        img {
+            @apply w-full h-full object-cover;
+        }
+    }
+
+    .hero-caption {
+        @apply bg-pan-blue/70 w-full pt-[30px] pb-[40px] absolute bottom-0 z-10;
+
+        .caption1 {
+            @apply text-white font-bold text-[clamp(20px,3vw,32px)] leading-[1.1em] mb-[0.5em] col-span-12;
+        }
+        
+        .caption2 {
+            @apply text-white font-bold text-[clamp(16px,2vw,24px)] leading-[1.1em] col-span-12;
+        }
+    }
+}
