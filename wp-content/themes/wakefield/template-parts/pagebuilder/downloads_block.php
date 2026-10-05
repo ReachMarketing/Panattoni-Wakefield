@@ -2,10 +2,12 @@
 
 $downloads = $args['section']['downloads'] ?? "";
 
+$count = count($downloads);
+
 echo <<<HTML
     <section class="downloads-block">
         <div class="inner-wrapper">
-            <div class="downloads-wrapper">
+            <div class="downloads-wrapper items{$count}">
 HTML;
 foreach ($downloads as $download) {
     echo <<<HTML

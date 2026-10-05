@@ -24,6 +24,12 @@ section.downloads-block {
                     }
                 }
             }
+
+            &.items2 {
+                a.download {
+                    @apply lg:w-[calc(50%-12.5px)] md:w-[calc(50%-12.5px)] w-full;
+                }
+            }
         } 
     }
 }

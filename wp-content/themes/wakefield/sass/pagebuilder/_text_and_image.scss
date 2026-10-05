@@ -34,6 +34,28 @@ section.text-and-image {
                     @apply scale-[1.025] opacity-80;
                 }
             }
+
+            a.download {
+                @apply w-full block border-[1px] border-pan-light-blue relative overflow-clip;
+
+                .image-caption {
+                    @apply flex justify-between bg-pan-blue/90 duration-300 ease-out transition-colors;
+
+                    span.icon {
+                        @apply flex justify-between items-center;
+
+                        svg {
+                            @apply h-[1.25em] fill-white ml-[15px];
+                        }
+                    }
+                }
+
+                &:hover {
+                    .image-caption {
+                        @apply bg-pan-light-blue/90;
+                    }
+                }
+            }
         }
 
         &.reversed {
